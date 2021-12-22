@@ -3,7 +3,6 @@ const { app, ipcMain, BrowserWindow } = require('electron')
 function createWindow () {
 
     const win = new BrowserWindow({
-        icon: 'icon.ico',
         width: 320,
         height: 16,
         resizable: false,
