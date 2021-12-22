@@ -17,7 +17,7 @@ function createWindow () {
   
     win.loadFile('main.html')
 
-    win.webContents.once('dom-ready', () => {win.webContents.send('argv', process.argv.slice(1))})
+    win.webContents.once('dom-ready', () => {win.webContents.send('ready', process.argv.slice(1))})
 
     ipcMain.on('close-app', () => {win.close()})
 }
