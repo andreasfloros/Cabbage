@@ -1,0 +1,49 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(ellipse at top, #2a4765, transparent),
+                radial-gradient(ellipse at bottom, black, transparent);
+    background-color: black;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#icon {
+    -webkit-app-region: drag;
+    width: 24px;
+    height: 100%;
+    padding: 1px 6px;
+}
+
+#close-svg {
+    width: 32px;
+    height: 16px;
+}
+
+#close-btn {
+    height: 100%;
+    outline: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+#close-btn:hover {
+    background-color: red;
+}
+
+#key-entry {
+    background-color: #272C36;
+    outline: none;
+    border: none;
+    flex-grow: 1;
+    height: 100%;
+    color: green;
+    caret-color: greenyellow;
+}
