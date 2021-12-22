@@ -4,7 +4,8 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron . example"
+    "start": "electron . example",
+    "build": "electron-packager C:\\Users\\andre\\Documents\\GitHub\\Cabbage Cabbage --platform=win32 --arch=x64"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,6 @@
   "homepage": "https://github.com/andreasfloros/Cabbage#readme",
   "devDependencies": {
     "electron": "^16.0.5"
-  }
+  },
+  "dependencies": {}
 }

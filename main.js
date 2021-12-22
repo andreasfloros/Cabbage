@@ -3,6 +3,7 @@ const { app, ipcMain, BrowserWindow } = require('electron')
 function createWindow () {
 
     const win = new BrowserWindow({
+        icon: 'icon.ico',
         width: 320,
         height: 16,
         resizable: false,
@@ -10,14 +11,14 @@ function createWindow () {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-            devTools: true,
+            devTools: false,
             spellcheck: false
         }
     })
   
     win.loadFile('main.html')
 
-    win.webContents.once('dom-ready', () => {win.webContents.send('argv', process.argv.slice(2))})
+    win.webContents.once('dom-ready', () => {win.webContents.send('argv', process.argv.slice(1))})
 
     ipcMain.on('close-app', () => {win.close()})
 }
