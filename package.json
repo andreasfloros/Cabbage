@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/andreasfloros/Cabbage#readme",
   "devDependencies": {
-    "electron": "^16.0.5"
+    "electron": "^16.2.8"
   },
-  "dependencies": {}
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  }
 }

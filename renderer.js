@@ -2,7 +2,8 @@ const { ipcRenderer } = require('electron')
 
 ipcRenderer.on('ready', (_, args) => {
     if (args.length > 0) {
-        document.getElementById('key-entry').placeholder = args
+        filePath = args
+        document.getElementById('key-entry').placeholder = filePath
         document.getElementById('key-entry').focus()
     }
     else {
@@ -14,4 +15,12 @@ document.addEventListener('keydown', (e) => {if (e.keyCode == 27) {ipcRenderer.s
 
 document.getElementById('close-btn').addEventListener('click', () => {ipcRenderer.send('close-app')})
 
-document.getElementById('key-entry').addEventListener('keypress', (e) => {if (e.keyCode == 13) {}})
+document.getElementById('key-entry').addEventListener('keypress', (e) => {
+    if (e.keyCode == 13) {
+        encryptDecrypt(
+            document.getElementById('key-entry').value,
+            document.getElementById('key-entry').placeholder
+            )
+        ipcRenderer.send('close-app')
+    }
+})
