@@ -1,9 +1,9 @@
 const CryptoJS = require("crypto-js");
-const fs = require("fs")
+const fs = require("fs");
 
 const iv = '9De0DgMTCDFGNokdEEial';
 
-const encryptDecrypt = (key, filePath) => {
+module.exports = (key, filePath) => {
     const dataFile = fs.readFileSync(filePath);
     const dataBase64 = dataFile.toString('base64');
     var result = null;

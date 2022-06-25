@@ -1,4 +1,4 @@
-const { app, ipcMain, BrowserWindow } = require('electron')
+const { app, ipcMain, BrowserWindow } = require('electron');
 
 function createWindow () {
 
@@ -13,13 +13,19 @@ function createWindow () {
             devTools: false,
             spellcheck: false
         }
-    })
+    });
   
-    win.loadFile('main.html')
+    win.loadFile('main.html');
 
-    win.webContents.once('dom-ready', () => {win.webContents.send('ready', process.argv.slice(1))})
+    win.webContents.once('dom-ready', () => {
+        win.webContents.send('ready', process.argv.slice(1));
+    })
 
-    ipcMain.on('close-app', () => {win.close()})
-}
+    ipcMain.on('close-app', () => {
+        win.close();
+    })
+};
 
-app.whenReady().then(() => {createWindow()})
+app.whenReady().then(() => {
+    createWindow();
+})
