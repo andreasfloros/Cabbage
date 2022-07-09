@@ -10,10 +10,15 @@ module.exports = (key, filePath) => {
 
     if (dataBase64.slice(0, iv.length) === iv) {
         result = CryptoJS.AES.decrypt(dataBase64.slice(iv.length), key, {iv: iv}).toString(CryptoJS.enc.Utf8);
+        if (result.slice(0, iv.length) !== iv) {
+            return false;
+        }
+        result = result.slice(iv.length);
     }
     else {
-        result = iv + CryptoJS.AES.encrypt(dataBase64, key, {iv: iv}).toString();
+        result = iv + CryptoJS.AES.encrypt(iv + dataBase64, key, {iv: iv}).toString();
     }
     const buffer = new Buffer(result, 'base64');
     fs.writeFileSync(filePath, buffer);
+    return true;
 }
