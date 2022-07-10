@@ -9,7 +9,12 @@ module.exports = (key, filePath) => {
     var result = null;
 
     if (dataBase64.slice(0, iv.length) === iv) {
-        result = CryptoJS.AES.decrypt(dataBase64.slice(iv.length), key, {iv: iv}).toString(CryptoJS.enc.Utf8);
+        try {
+            result = CryptoJS.AES.decrypt(dataBase64.slice(iv.length), key, {iv: iv}).toString(CryptoJS.enc.Utf8);
+        }
+        catch (e) {
+            return false;
+        }
         if (result.slice(0, iv.length) !== iv) {
             return false;
         }

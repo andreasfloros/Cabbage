@@ -26,6 +26,8 @@ document.getElementById('key-entry').addEventListener('keypress', (e) => {
     if (e.keyCode == 13) {
         success = encryptDecrypt(document.getElementById('key-entry').value, document.getElementById('key-entry').placeholder);
         if (success) {
+            document.getElementById('key-entry').value = '';
+            document.getElementById('key-entry').focus();
             ipcRenderer.send('close-app');
         }
     }
