@@ -13,7 +13,7 @@ ipcRenderer.on('ready', (_, args) => {
 })
 
 document.addEventListener('keydown', (e) => {
-    if (e.keyCode == 27) {
+    if (e.key === "Escape" ) {
         ipcRenderer.send('close-app');
     }
 })
@@ -23,7 +23,7 @@ document.getElementById('close-btn').addEventListener('click', () => {
 })
 
 document.getElementById('key-entry').addEventListener('keypress', (e) => {
-    if (e.keyCode == 13) {
+    if (e.key === "Enter") {
         success = encryptDecrypt(document.getElementById('key-entry').value, document.getElementById('key-entry').placeholder);
         if (success) {
             ipcRenderer.send('close-app');
