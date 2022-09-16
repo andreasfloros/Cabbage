@@ -1,7 +1,7 @@
 const CryptoJS = require("crypto-js");
 const fs = require("fs");
 
-const iv = '9De0DgMTCDFGNokdEEial';
+const iv = '12D4500890k23456';
 
 module.exports = (key, filePath) => {
     const dataFile = fs.readFileSync(filePath);
