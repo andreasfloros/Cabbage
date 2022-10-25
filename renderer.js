@@ -1,10 +1,10 @@
 const { ipcRenderer } = require('electron');
 const encryptDecrypt = require('./crypto.js');
+const fs = require("fs");
 
-ipcRenderer.on('ready', (_, args) => {
-    if (args.length > 0) {
-        filePath = args;
-        document.getElementById('key-entry').placeholder = filePath;
+ipcRenderer.on('ready', (_, maybeFilePath) => {
+    if (fs.existsSync(maybeFilePath)) {
+        document.getElementById('key-entry').placeholder = maybeFilePath;
         document.getElementById('key-entry').focus();
     }
     else {
@@ -24,12 +24,13 @@ document.getElementById('close-btn').addEventListener('click', () => {
 
 document.getElementById('key-entry').addEventListener('keypress', (e) => {
     if (e.key === "Enter") {
-        success = encryptDecrypt(document.getElementById('key-entry').value, document.getElementById('key-entry').placeholder);
-        if (success) {
+        successOrDeleted = encryptDecrypt(document.getElementById('key-entry').value,
+                                          document.getElementById('key-entry').placeholder);
+        if (successOrDeleted) {
             ipcRenderer.send('close-app');
         }
         else {
-            document.getElementById('key-entry').value = '';
+            document.getElementById('key-entry').value = "";
         }
     }
 })

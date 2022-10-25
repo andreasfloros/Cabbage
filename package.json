@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "electron . example",
+    "start": "electron .",
     "build": "electron-packager C:\\Users\\andre\\Documents\\GitHub\\Cabbage Cabbage --platform=win32 --arch=x64 --overwrite --icon 'icon.ico'"
   },
   "repository": {
