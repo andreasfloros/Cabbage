@@ -1,22 +1,9 @@
 {
-  "name": "cabbage",
-  "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager C:\\Users\\andre\\Documents\\GitHub\\Cabbage Cabbage --platform=win32 --arch=x64 --overwrite --icon 'icon.ico'"
+    "build": "electron-packager . Cabbage --platform=win32 --arch=x64 --overwrite --icon 'icon.ico'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/andreasfloros/Cabbage.git"
-  },
-  "author": "Andreas Floros",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/andreasfloros/Cabbage/issues"
-  },
-  "homepage": "https://github.com/andreasfloros/Cabbage#readme",
   "devDependencies": {
     "electron": "^16.2.8"
   },

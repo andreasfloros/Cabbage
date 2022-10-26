@@ -7,6 +7,7 @@ function createWindow () {
         height: 16,
         resizable: false,
         frame: false,
+        show: false,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
@@ -16,6 +17,7 @@ function createWindow () {
     });
   
     win.loadFile('main.html');
+    win.once('ready-to-show', win.show);
 
     win.webContents.once('dom-ready', () => {
         win.webContents.send('ready', process.argv[1]);

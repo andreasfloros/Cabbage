@@ -3,7 +3,7 @@ const encryptDecrypt = require('./crypto.js');
 const fs = require("fs");
 
 ipcRenderer.on('ready', (_, maybeFilePath) => {
-    if (fs.existsSync(maybeFilePath)) {
+    if (fs.existsSync(maybeFilePath) && fs.lstatSync(maybeFilePath).isFile()) {
         document.getElementById('password-entry').placeholder = maybeFilePath;
         document.getElementById('password-entry').focus();
     }
