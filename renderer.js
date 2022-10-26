@@ -4,8 +4,8 @@ const fs = require("fs");
 
 ipcRenderer.on('ready', (_, maybeFilePath) => {
     if (fs.existsSync(maybeFilePath)) {
-        document.getElementById('key-entry').placeholder = maybeFilePath;
-        document.getElementById('key-entry').focus();
+        document.getElementById('password-entry').placeholder = maybeFilePath;
+        document.getElementById('password-entry').focus();
     }
     else {
         ipcRenderer.send('close-app');
@@ -22,15 +22,20 @@ document.getElementById('close-btn').addEventListener('click', () => {
     ipcRenderer.send('close-app');
 })
 
-document.getElementById('key-entry').addEventListener('keypress', (e) => {
+document.getElementById('password-entry').addEventListener('keypress', (e) => {
     if (e.key === "Enter") {
-        successOrDeleted = encryptDecrypt(document.getElementById('key-entry').value,
-                                          document.getElementById('key-entry').placeholder);
-        if (successOrDeleted) {
+        try {
+            success = encryptDecrypt(document.getElementById('password-entry').value,
+                                     document.getElementById('password-entry').placeholder);
+        }
+        catch (e) {
+            success = false; // wrong password, file deleted, file locked
+        }
+        if (success) {
             ipcRenderer.send('close-app');
         }
         else {
-            document.getElementById('key-entry').value = "";
+            document.getElementById('password-entry').value = "";
         }
     }
 })
