@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . Cabbage --platform=win32 --arch=x64 --overwrite --icon \"icon.ico\" --appCopyright \"Copyright (C) 2022 Groceries, Inc. All rights reserved.\""
+    "build": "electron-packager . Cabbage --platform=win32 --arch=x64 --asar --overwrite --icon \"icon.ico\" --appCopyright \"Copyright (C) 2022 Groceries, Inc. All rights reserved.\""
   },
   "author": "Groceries, Inc.",
   "license": "",
