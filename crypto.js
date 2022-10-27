@@ -5,8 +5,6 @@ const generateCfg = (password, salt) => {
     if (salt === null) {
         salt = CryptoJS.lib.WordArray.random(16).toString();
     }
-    console.log(salt)
-    console.log(salt.length)
     let out = CryptoJS.PBKDF2(password, salt, {keySize: 12, iterations: 1000});
     out.clamp();
     return {
