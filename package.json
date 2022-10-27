@@ -4,7 +4,7 @@
   "description": "Lettuce be free",
   "main": "main.js",
   "scripts": {
-    "start": "electron .",
+    "test": "node test.js",
     "build": "electron-packager . Cabbage --platform=win32 --arch=x64 --asar --overwrite --icon \"icon.ico\" --appCopyright \"Copyright (C) 2022 Groceries, Inc. All rights reserved.\""
   },
   "author": "Groceries, Inc.",

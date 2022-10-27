@@ -1,5 +1,5 @@
 const { ipcRenderer } = require('electron');
-const encryptDecrypt = require('./crypto.js');
+const { encryptDecrypt } = require('./crypto.js');
 const fs = require("fs");
 
 ipcRenderer.on('ready', (_, maybeFilePath) => {
