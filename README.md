@@ -8,7 +8,7 @@ Install [Node.js](https://nodejs.org/en/download/).
 
 Run `npm install` at the root of the project to install dependencies.
 
-Run `node test.js` to test the encryption/decryption pipeline.
+Run `node test.js` to test the encryption / decryption pipeline.
 
 Run `npm run-script build` to build the executable (Windows only at the moment).
 
